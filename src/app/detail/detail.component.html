@@ -1,0 +1,24 @@
+<div class="card mb-3">
+    <div class="card-header">
+        {{getSelectedComponentDetail.selectedComponent.title}} View
+    </div>
+    <div class="card-body" [innerHTML]="getSelectedComponentDetail.componentData.html">
+
+    </div>
+</div>
+
+
+<div ngbAccordion class="mb-3" *ngFor="let code of codeData">
+    <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+            <button ngbAccordionButton>{{getSelectedComponentDetail.selectedComponent.title}} {{code.title}}</button>
+        </h2>
+        <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+                <ng-template>
+                    <pre>{{code.value}}</pre>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
