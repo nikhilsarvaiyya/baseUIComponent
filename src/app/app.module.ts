@@ -5,13 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
-import { CommanComponent } from './comman/comman.component';
-import { DetailComponent } from './detail/detail.component';
+
+import { DetailComponent } from './components/detail/detail.component';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,8 @@ import { DetailComponent } from './detail/detail.component';
     HeaderComponent,
     DashboardComponent,
     PagenotfoundComponent,
-    CommanComponent,
-    DetailComponent
+    DetailComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

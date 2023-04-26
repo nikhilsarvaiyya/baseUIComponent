@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { htmlCodeFormatter, cssCodeFormatter } from '../utility/codeFormatter';
+import { htmlCodeFormatter, cssCodeFormatter } from '../../utility/codeFormatter';
+import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  templateUrl: './detail.component.html'
 })
 export class DetailComponent {
   getSelectedComponentDetail: any = {}
   codeData: any = []
   htmlCodeFormatter = htmlCodeFormatter;
   cssCodeFormatter = cssCodeFormatter;
+  createDynamicStyle=createDynamicStyle;
 
   constructor(private location: Location) {
 
@@ -19,7 +20,8 @@ export class DetailComponent {
   ngOnInit() {
     this.getSelectedComponentDetail = this.location.getState()
     this.codeAccordian()
-    this.loadStyle(this.getSelectedComponentDetail.componentData['css'])
+    this.createDynamicStyle(this.getSelectedComponentDetail.componentData['css'] as any)
+    
   }
 
   codeAccordian() {
@@ -39,21 +41,6 @@ export class DetailComponent {
       }
     }
     return this.codeData
-  }
-
-  loadStyle(data: any) {
-    let setValues = data.toString().replace("},","}")
-    var style_sheet = document.createElement('style');
-    if (style_sheet) {
-      style_sheet.setAttribute('type', 'text/css');
-      var cstr = setValues;
-      var rules = document.createTextNode(cstr);
-      style_sheet.appendChild(rules);
-      var head = document.getElementsByTagName('head')[0];
-      if (head) {
-        head.appendChild(style_sheet);
-      }
-    }
   }
 
 }

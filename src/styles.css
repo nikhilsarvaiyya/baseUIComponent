@@ -17,3 +17,16 @@
         width: calc(100% - 16rem);
     }        
 }
+
+.menu-active{
+    background-color: #1e40af;
+    border-left:4px solid #3b82f6
+  }
+
+  .sub-menu-active{
+    background-color: #2851d9;
+    border-left:4px solid #3b82f6
+  }
+  
+  
+  
