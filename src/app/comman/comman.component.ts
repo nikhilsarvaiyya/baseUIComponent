@@ -1,8 +1,7 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, Inject, Injectable } from '@angular/core';
 import * as data from '../../assets/json/items.json'
 import { htmlCodeFormatter, cssCodeFormatter } from '../utility/codeFormatter';
 import { ActivatedRoute } from '@angular/router'
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-comman',
@@ -10,8 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./comman.component.css']
 })
 export class CommanComponent {
-  styleUrl : string = './comman.component.css';
-
   items = (data as any).default;
   selectedComponent: any = {}
 
@@ -20,27 +17,46 @@ export class CommanComponent {
 
   routeName: any = ''
 
-  constructor(private route: ActivatedRoute,public sanitizer: DomSanitizer) {
-   
+  title = 'dyncss';
+  constructor(private route: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
-   
+    this.updateComponent()
+    this.setData()
   }
-  
-  setData() {
+
+  updateComponent(){
     this.routeName = this.route.snapshot.paramMap.get('type')
     this.selectedComponent = this.items.find((x: any) => x.path == this.routeName);
   }
-
-  ngAfterContentChecked(){
-    this.setData()
-    this.changeCSSStyle()
+  setData(){
+   let mergeCSS = []
+    for (let index = 0; index < this.selectedComponent.data.length; index++) {
+      mergeCSS.push(this.selectedComponent.data[index].css)
+    }
+    this.loadStyle(mergeCSS)
   }
 
-  changeCSSStyle() {
-    console.log(this.styleUrl)
-    //this.styleUrl = (this.styleUrl === './comman.component.css') ? '../dashboard.component.css' : './comman.component.css';
+  ngAfterContentChecked() {
+    this.updateComponent()
+  }
+
+  loadStyle(data: any) {
+    
+    let setValues = data.toString().replace("},","}")
+    var style_sheet = document.createElement('style');
+    if (style_sheet) {
+      style_sheet.setAttribute('type', 'text/css');
+      var cstr = setValues;
+      var rules = document.createTextNode(cstr);
+      style_sheet.appendChild(rules);
+      var head = document.getElementsByTagName('head')[0];
+      if (head) {
+        head.appendChild(style_sheet);
+      }
+    }
   }
 
 }

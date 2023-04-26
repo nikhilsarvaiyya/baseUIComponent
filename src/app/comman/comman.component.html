@@ -1,9 +1,11 @@
 <div *ngIf="selectedComponent?.data">
     <div class="row  mb-3">
-        <div *ngFor="let sub of selectedComponent?.data" class='col-xl-3 col-lg-4 col-md-6 col-sm-6 col-sx-12 mb-4 bg-blue-200' >
-            <a routerLink="/component/{{selectedComponent.path}}/{{sub.id}}"
-                [state]="{ selectedComponent:selectedComponent, componentData:sub }" class="card-link"
-                [innerHTML]="sub.html" ></a>
-        </div>
+        <a routerLink="/component/{{selectedComponent.path}}/{{sub.id}}"
+            [state]="{ selectedComponent:selectedComponent, componentData:sub }"
+            *ngFor="let sub of selectedComponent?.data" class='col-xl-3 col-lg-4 col-md-6 col-sm-6 col-sx-12 mb-4 '>
+            <div class="bg-blue-100 border border-2 rounded ">
+                <a class="card-link" [innerHTML]="sub.html"></a>
+            </div>
+        </a>
     </div>
 </div>

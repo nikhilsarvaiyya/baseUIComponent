@@ -19,6 +19,7 @@ export class DetailComponent {
   ngOnInit() {
     this.getSelectedComponentDetail = this.location.getState()
     this.codeAccordian()
+    this.loadStyle(this.getSelectedComponentDetail.componentData['css'])
   }
 
   codeAccordian() {
@@ -38,6 +39,21 @@ export class DetailComponent {
       }
     }
     return this.codeData
+  }
+
+  loadStyle(data: any) {
+    let setValues = data.toString().replace("},","}")
+    var style_sheet = document.createElement('style');
+    if (style_sheet) {
+      style_sheet.setAttribute('type', 'text/css');
+      var cstr = setValues;
+      var rules = document.createTextNode(cstr);
+      style_sheet.appendChild(rules);
+      var head = document.getElementsByTagName('head')[0];
+      if (head) {
+        head.appendChild(style_sheet);
+      }
+    }
   }
 
 }
