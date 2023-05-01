@@ -30,6 +30,8 @@ export class DetailComponent {
     for (let key in this.getSelectedComponentDetail.componentData) {
       console.log('key: ' + key + ',  value: ' + this.getSelectedComponentDetail.componentData[key]);
       switch (key) {
+        case 'id':
+          break;
         case 'html':
           this.codeData.push({title : "HTML", value: this.htmlCodeFormatter(this.getSelectedComponentDetail.componentData[key]) })
           break;
@@ -37,6 +39,7 @@ export class DetailComponent {
           this.codeData.push({ title : "CSS", value: this.cssCodeFormatter(this.getSelectedComponentDetail.componentData[key]) })
           break;
         default:
+          this.codeData.push({ title : "Others", value: this.getSelectedComponentDetail.componentData[key] })
           break;
       }
     }

@@ -1,15 +1,15 @@
 import { Component, OnInit, AfterContentChecked, Inject, Injectable } from '@angular/core';
-import * as data from '../../../assets/json/items.json'
+// import * as data from '../../../assets/json/items.json'
 import { htmlCodeFormatter, cssCodeFormatter } from '../../utility/codeFormatter';
 import { ActivatedRoute } from '@angular/router'
 import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
-
+import dummyObj from 'src/assets/script/dummyObj';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
 export class ListComponent {
-  items = (data as any).default;
+  items = (dummyObj as any);
   selectedComponent: any = {}
 
   htmlCodeFormatter = htmlCodeFormatter;
@@ -17,24 +17,27 @@ export class ListComponent {
   createDynamicStyle = createDynamicStyle
   routeName: any = ''
 
-  title = 'dyncss';
+  
   constructor(private route: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
+    console.log(this.items)
     this.updateComponent()
     this.setData()
+   
+    
   }
 
   updateComponent() {
     this.routeName = this.route.snapshot.paramMap.get('type')
-    this.selectedComponent = this.items.find((x: any) => x.path == this.routeName);
+    this.selectedComponent =this.items?.find((x: any) => x.path == this.routeName);
   }
 
   setData() {
     let mergeCSS = []
-    for (let index = 0; index < this.selectedComponent.data.length; index++) {
+    for (let index = 0; index < this.selectedComponent?.data?.length; index++) {
       mergeCSS.push(this.selectedComponent.data[index].css)
     }
     this.createDynamicStyle(mergeCSS as any)
@@ -42,12 +45,13 @@ export class ListComponent {
   }
 
   ngAfterCiewChecked() {
-
+    
   }
 
   ngAfterContentChecked() {
     this.setData()
     this.updateComponent()
+   
   }
 
 }

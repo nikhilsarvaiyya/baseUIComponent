@@ -1,11 +1,20 @@
-<div *ngIf="selectedComponent?.data">
-    <div class='grid gap-4 grid-cols-3  '>
-        <a routerLink="/component/{{selectedComponent.path}}/{{sub.id}}"
-            [state]="{ selectedComponent:selectedComponent, componentData:sub }"
-            *ngFor="let sub of selectedComponent?.data" >
-            <div class="bg-blue-100 border border-2 rounded ">
-                <a class="card-link" [innerHTML]="sub.html"></a>
-            </div>
-        </a>
+
+<div class="grid gap-4 grid-cols-3 "  *ngIf="selectedComponent?.data; else NoData" >
+    <div class=' card' style="min-height:200px" *ngFor="let sub of selectedComponent?.data">
+        <div class="card-header font-semibold bg-purple-00">
+            {{sub.name}}
+            <a class="float-right" routerLink="/component/{{selectedComponent.path}}/{{sub.name}}"
+                [state]="{ selectedComponent:selectedComponent, componentData:sub }">
+                <i class="bi bi-eye"></i></a>
+        </div>
+        <div class="card-body bg-purple-500">
+            <div class="card-text p-3" [innerHTML]="sub.html"></div>
+        </div>
+        <!-- <div class="card-footer bg-blue-300" ></div> -->
     </div>
 </div>
+<ng-template #NoData>
+    Comming Soon...
+</ng-template>
+
+
