@@ -35,11 +35,30 @@ let dummyObj: any = [
     {
         id: 4,
         key: "form",
-        path: "Forms",
+        path: "forms",
         title: "Form Element",
         icon: "align-start",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
+        subTree: [{
+            id: 4,
+            key: "input",
+            path: "input",
+            title: "Inputs",
+            icon: "align-start",
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
+    
+        },{
+            id: 4,
+            key: "select",
+            path: "select",
+            title: "Select",
+            icon: "align-start",
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
+    
+        }]
+        
 
     }
 

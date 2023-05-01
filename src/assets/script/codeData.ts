@@ -95,6 +95,22 @@ let codeData = [
             }
         ]
     }
+    ,
+    {
+        type: "select",
+        value: [
+            {
+                name: "Search",
+                html: "<select ><option>one</option></select>",
+                css: ""
+            },
+            {
+                name: "Search",
+                html: "<select ><option>Two</option></select>",
+                css: ""
+            }
+        ]
+    }
 
 
 ]

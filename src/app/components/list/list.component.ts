@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterContentChecked, Inject, Injectable } from '@angular/core';
 // import * as data from '../../../assets/json/items.json'
+import { Location } from '@angular/common';
 import { htmlCodeFormatter, cssCodeFormatter } from '../../utility/codeFormatter';
 import { ActivatedRoute } from '@angular/router'
 import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
@@ -11,32 +12,34 @@ import dummyObj from 'src/assets/script/dummyObj';
 export class ListComponent {
   items = (dummyObj as any);
   selectedComponent: any = {}
-
+  getSelectedComponentDetail : any = {}
   htmlCodeFormatter = htmlCodeFormatter;
   cssCodeFormatter = cssCodeFormatter;
   createDynamicStyle = createDynamicStyle
   getListId: any = ''
+  getSubListId: any = ''
 
-  
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private location: Location) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.items)
+    
     this.updateComponent()
     this.setData()
    
-    
+
   }
 
   updateComponent() {
-   this.getParams()
-    this.selectedComponent =this.items?.find((x: any) => x.path == this.getListId);
+    this.getParams()
+    this.selectedComponent = this.items?.find((x: any) => x.path == this.getListId);
+    this.getSelectedComponentDetail = this.location.getState()
   }
 
-  getParams(){
+  getParams() {
     this.getListId = this.route.snapshot.paramMap.get('listId')
+    this.getSubListId = this.route.snapshot.paramMap.get('subListId')
   }
 
   setData() {
@@ -45,17 +48,17 @@ export class ListComponent {
       mergeCSS.push(this.selectedComponent.data[index].css)
     }
     this.createDynamicStyle(mergeCSS as any)
-   
+
   }
 
   ngAfterCiewChecked() {
-    
+
   }
 
   ngAfterContentChecked() {
     this.setData()
     this.updateComponent()
-   
+
   }
 
 }

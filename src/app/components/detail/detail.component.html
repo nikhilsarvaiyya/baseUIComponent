@@ -1,3 +1,4 @@
+
 <div class="card mb-3">
 
     <div class="card-header">
@@ -10,7 +11,7 @@
 
 
 <div ngbAccordion class="mb-3" *ngFor="let code of codeData">
-    <div ngbAccordionItem>
+    <div ngbAccordionItem *ngIf="code.value">
         <h2 ngbAccordionHeader>
             <button ngbAccordionButton> {{code.title}} - <i class="font-light text-sm indent-1"> {{getListId}} - {{getDetailId}}</i></button>
         </h2>

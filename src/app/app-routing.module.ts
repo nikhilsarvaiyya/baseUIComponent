@@ -7,8 +7,11 @@ import { DetailComponent } from './components/detail/detail.component';
 import { ListComponent } from './components/list/list.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'component/page/:pageId', component: DashboardComponent, pathMatch: 'full' },
   { path: 'component/list/:listId', component: ListComponent, pathMatch: 'full' },
+  { path: 'component/list/:listId/:subListId', component: ListComponent, pathMatch: 'full' },
   { path: 'component/detail/:listId/:detailId', component: DetailComponent, pathMatch: 'full' },
+  { path: 'component/detail/:listId/:subListId/:detailId', component: DetailComponent, pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full' },
 ];
 

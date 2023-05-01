@@ -1,7 +1,7 @@
 
 
-<div class="grid gap-4 grid-cols-3" *ngIf="selectedComponent?.data; else NoData" >
-    <div class=' card' style="min-height:200px" *ngFor="let sub of selectedComponent?.data">
+<div class="grid gap-4 grid-cols-3" *ngIf="getSelectedComponentDetail?.selectedComponent?.data; else NoData" >
+    <div class=' card' style="min-height:200px" *ngFor="let sub of getSelectedComponentDetail?.selectedComponent?.data">
         <div class="card-header font-semibold bg-purple-00">
             {{sub.name}}
             <a class="float-right" routerLink="/component/detail/{{selectedComponent.path}}/{{sub.name}}"

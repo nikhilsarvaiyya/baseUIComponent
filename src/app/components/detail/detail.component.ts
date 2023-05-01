@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class DetailComponent {
   getSelectedComponentDetail: any = {}
+  getParentComponentDetail: any = {}
   codeData: any = [];
   getListId : any = ''
   getDetailId : any = ''
@@ -21,6 +22,7 @@ export class DetailComponent {
   }
   ngOnInit() {
     this.getSelectedComponentDetail = this.location.getState()
+    this.getParentComponentDetail = this.location.getState()
     this.getParams()
     this.codeAccordian()
     this.createDynamicStyle(this.getSelectedComponentDetail.componentData['css'] as any)

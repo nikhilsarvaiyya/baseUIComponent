@@ -1,17 +1,21 @@
+<div class="grid gap-4 grid-cols-3" *ngIf="selectedComponentData;else noComponent">
+  <div class=' card ' *ngFor="let comp of selectedComponentData">
 
-<div class="grid gap-4 grid-cols-3" *ngIf="components;else noComponent">
-  <div class=' card ' *ngFor="let comp of components">
-      <div class="card-header font-semibold bg-purple-200">
-        {{comp.title}}
-          <a class="float-right" href="component/list/{{comp.path}}">
-              <i class="bi bi-eye"></i></a>
-      </div>
-      <div class="card-body bg-purple-100">
-          <p class="card-text">
-            {{comp.description}}
-          </p>
-      </div>
-      <!-- <div class="card-footer bg-blue-300" ></div> -->
+    <div class="card-header font-semibold bg-purple-200">
+      {{comp.title}}
+
+
+      <a class="float-right"
+        routerLink="/component/{{comp.subTree ? 'page' : 'list'}}/{{getParentComponentDetail?.selectedComponent?.path}}/{{comp.path}}"
+        [state]="{ selectedComponent:comp, componentData:comp }"><i class="bi bi-eye"></i> </a>
+
+    </div>
+    <div class="card-body bg-purple-100">
+      <p class="card-text">
+        {{comp.description}}
+      </p>
+    </div>
+    <!-- <div class="card-footer bg-blue-300" ></div> -->
   </div>
 </div>
 <ng-template #noComponent>
