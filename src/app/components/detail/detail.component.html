@@ -3,7 +3,7 @@
     <div class="card-header">
         {{getSelectedComponentDetail.selectedComponent.title}} View
     </div>
-    <div class="card-body bg-blue-100" [innerHTML]="getSelectedComponentDetail.componentData.html">
+    <div class="card-body bg-blue-100" [innerHTML]="getSelectedComponentDetail.componentData.html | sanitizeHtml">
 
     </div>
 </div>

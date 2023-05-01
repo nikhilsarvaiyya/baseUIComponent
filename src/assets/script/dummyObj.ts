@@ -39,7 +39,7 @@ let dummyObj: any = [
         title: "Form Element",
         icon: "align-start",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'form')[0]?.value 
+        data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
 
     }
 

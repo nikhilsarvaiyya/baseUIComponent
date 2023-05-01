@@ -13,6 +13,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 
 import { DetailComponent } from './components/detail/detail.component';
 import { ListComponent } from './components/list/list.component';
+import { SanitizeHtmlPipe } from './pipe/sanitize-html.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListComponent } from './components/list/list.component';
     DashboardComponent,
     PagenotfoundComponent,
     DetailComponent,
-    ListComponent
+    ListComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule,
