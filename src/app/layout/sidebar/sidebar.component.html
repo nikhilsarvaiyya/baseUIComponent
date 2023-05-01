@@ -20,13 +20,13 @@
        
         <li  *ngFor="let menu of components ">
           
-          <a routerLinkActive="menu-active" routerLink="component/{{menu.path}}"  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+          <a routerLinkActive="menu-active" routerLink="component/list/{{menu.path}}"  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
               <i [ngClass]="menu.icon ? 'bi-'+menu.icon : 'bi-bookmark'" class="bi"></i>
             </span>
             <span class="ml-2 text-sm tracking-wide truncate">{{menu?.title}}</span>
             <!-- <span class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-500 bg-indigo-50 rounded-full">New</span> -->
-            <span *ngIf="menu?.data?.length != 0" class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">{{menu?.data?.length }}</span>
+            <span *ngIf="menu?.data?.length " class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">{{menu?.data?.length }}</span>
           </a>
           <!-- <ul >
             <li *ngFor="let s of r.data ">

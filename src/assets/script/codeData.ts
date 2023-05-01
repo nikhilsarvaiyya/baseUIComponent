@@ -66,12 +66,12 @@ let codeData = [
             {
                 name: "Lorem Ipsum",
                 html: "<div class='w-full mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'><div class=' mx-auto' ><div class='h-[236px]' style='background-image:url(https://img.freepik.com/free-photo/pasta-spaghetti-with-shrimps-sauce_1220-5072.jpg?w=2000&t=st=1678041911~exp=1678042511~hmac=e4aa55e70f8c231d4d23832a611004f86eeb3b6ca067b3fa0c374ac78fe7aba6);background-size:cover;background-position:center'></div><div class='p-4 sm:p-6'><p class='font-bold text-gray-700 text-[22px] leading-7 mb-1'>Spagetti with shrimp sauce</p><div class='flex flex-row'><p class='text-[#3C3C4399] text-[17px] mr-2 line-through'>MVR 700</p><p class='text-[17px] font-bold text-[#0FB478]'>MVR 700</p></div><p class='text-[#7C7C80] font-[15px] mt-6'>Our shrimp sauce is made with mozarella, a creamy taste of shrimp with extra kick of spices.</p><a target='_blank' href='foodiesapp://food/1001' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>View on foodies </a><a target='_blank' href='https://apps.apple.com/us/app/id1493631471' class='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>Download app </a></div></div></div>",
-                css: "body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}code{font-family:source-code-pro,Menlo,Monaco,Consolas,'Courier New',monospace}a{text-decoration:none;color:inherit}"
+                css: "body{margin:0;}a{text-decoration:none;color:inherit}"
             },
             {
                 name: "Lorem Ipsum",
                 html: "<div class='card text-white bg-primary mb-3' style='max-width: 18rem;'><div class='card-header'>Header</div><div class='card-body'><h5 class='card-title'>Primary card title</h5><p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p></div></div>",
-                css: "a{font-family:source-code-pro,Menlo,Monaco,Consolas,'Courier New',monospace}br{text-decoration:none;color:inherit}"
+                css: "a{}br{text-decoration:none;color:inherit}"
             }
         ]
     }

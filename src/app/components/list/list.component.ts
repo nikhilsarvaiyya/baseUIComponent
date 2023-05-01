@@ -15,7 +15,7 @@ export class ListComponent {
   htmlCodeFormatter = htmlCodeFormatter;
   cssCodeFormatter = cssCodeFormatter;
   createDynamicStyle = createDynamicStyle
-  routeName: any = ''
+  getListId: any = ''
 
   
   constructor(private route: ActivatedRoute) {
@@ -31,8 +31,12 @@ export class ListComponent {
   }
 
   updateComponent() {
-    this.routeName = this.route.snapshot.paramMap.get('type')
-    this.selectedComponent =this.items?.find((x: any) => x.path == this.routeName);
+   this.getParams()
+    this.selectedComponent =this.items?.find((x: any) => x.path == this.getListId);
+  }
+
+  getParams(){
+    this.getListId = this.route.snapshot.paramMap.get('listId')
   }
 
   setData() {

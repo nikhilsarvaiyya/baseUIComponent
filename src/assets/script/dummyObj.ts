@@ -29,7 +29,7 @@ let dummyObj: any = [
         title: "Dynamic Tables",
         icon: "table",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'table')[0]?.value || []
+        data: codeData.filter((f: any) => f.type === 'table')[0]?.value 
 
     },
     {
@@ -39,7 +39,7 @@ let dummyObj: any = [
         title: "Form Element",
         icon: "align-start",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'form')[0]?.value || []
+        data: codeData.filter((f: any) => f.type === 'form')[0]?.value 
 
     }
 

@@ -1,15 +1,19 @@
-<div class="grid gap-4 grid-cols-3">
-  <div class=' card ' *ngFor="let c of components">
+
+<div class="grid gap-4 grid-cols-3" *ngIf="components;else noComponent">
+  <div class=' card ' *ngFor="let comp of components">
       <div class="card-header font-semibold bg-purple-200">
-        {{c.title}}
-          <a class="float-right" href="component/{{c.path}}">
+        {{comp.title}}
+          <a class="float-right" href="component/list/{{comp.path}}">
               <i class="bi bi-eye"></i></a>
       </div>
       <div class="card-body bg-purple-100">
           <p class="card-text">
-            {{c.description}}
+            {{comp.description}}
           </p>
       </div>
       <!-- <div class="card-footer bg-blue-300" ></div> -->
   </div>
 </div>
+<ng-template #noComponent>
+  Comming Soon
+</ng-template>
