@@ -25,7 +25,7 @@
         </a>
       </li>
 
-      <li *ngFor="let menu of components ">
+      <li  *ngFor="let menu of components;let i = index  ">
 
         <a routerLinkActive="menu-active" routerLink="component/{{menu.subTree ? 'page':'list'}}/{{menu.path}}"
           [state]="{ selectedComponent:menu, parentComponent : null  }"
@@ -35,12 +35,16 @@
           </span>
           <span class="ml-2 text-sm tracking-wide truncate">{{menu?.title}}</span>
           <!-- <span class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-500 bg-indigo-50 rounded-full">New</span> -->
-          <span *ngIf="menu?.data?.length "
+          <span *ngIf="!menu?.subTree"
             class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">{{menu?.data?.length
             }}</span>
+            <span *ngIf="menu?.subTree"
+            class="hidden h-5 pt-0.5 md:block px-1  ml-auto text-xs font-medium tracking-wide hover:text-red-500 hover:bg-red-50 hover:rounded-full">
+            <i (click)="showsubmenu(i); show===i ? show=-1: show=i" [ngClass]="show===i ? 'bi bi-caret-right-fill' : 'bi bi-caret-down-fill'"></i>
+          </span>
         </a>
-        <ul>
-          <li *ngFor="let subMenu of menu.subTree ">
+        <ul *ngIf="show===i">
+          <li *ngFor="let subMenu of menu.subTree; let j=index ">
             <a routerLinkActive="sub-menu-active" routerLink="component/list/{{menu.path}}/{{subMenu.path}}"
               [state]="{ selectedComponent:subMenu , parentComponent : menu}"
               class=" indent-4 relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
@@ -52,7 +56,7 @@
         </ul>
       </li>
 
-      
+
     </ul>
 
     <p class=" px-5 py-3 hidden md:block text-center text-xs">Copyright @2021</p> <!-- mb-14 -->

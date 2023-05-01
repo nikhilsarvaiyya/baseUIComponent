@@ -44,8 +44,6 @@ let dummyObj: any = [
             key: "input",
             path: "input",
             title: "Inputs",
-            icon: "align-start",
-            description: "This is some text within a card body.",
             data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
     
         },{
@@ -53,10 +51,39 @@ let dummyObj: any = [
             key: "select",
             path: "select",
             title: "Select",
-            icon: "align-start",
-            description: "This is some text within a card body.",
             data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
     
+        }]
+        
+
+    },
+    {
+        id: 4,
+        key: "chart",
+        path: "chart",
+        title: "Charts",
+        icon: "pie-chart-fill",
+        description: "This is some text within a card body.",
+        subTree: [{
+            id: 4,
+            key: "pie",
+            path: "pie",
+            title: "Pie Chart",
+            data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
+    
+        },{
+            id: 4,
+            key: "bar",
+            path: "bar",
+            title: "Bar Chart",
+             data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
+    
+        },{
+            id: 4,
+            key: "donut",
+            path: "donut",
+            title: "Donut Chart",
+            data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
         }]
         
 

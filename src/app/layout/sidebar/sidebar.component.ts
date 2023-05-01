@@ -6,7 +6,14 @@ import dummyObj from 'src/assets/script/dummyObj';
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent {
+  show = -1;
   components = dummyObj ||  (routeData as any)?.default; 
 
+  
+  showsubmenu(index : any) {
+
+   
+
+  }
   
 }
