@@ -11,7 +11,8 @@
         </div>
       </li>
       <li>
-        <a href="#"
+        <a routerLinkActive="menu-active" routerLink="component/page/dashboard" 
+        [state]="{ selectedComponent:null, parentComponent : null  }"
           class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
           <span class="inline-flex justify-center items-center ml-4">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -43,7 +44,7 @@
             <i (click)="showsubmenu(i); show===i ? show=-1: show=i" [ngClass]="show===i ? 'bi bi-caret-right-fill' : 'bi bi-caret-down-fill'"></i>
           </span>
         </a>
-        <ul *ngIf="show===i">
+        <ul *ngIf="show===i" >
           <li *ngFor="let subMenu of menu.subTree; let j=index ">
             <a routerLinkActive="sub-menu-active" routerLink="component/list/{{menu.path}}/{{subMenu.path}}"
               [state]="{ selectedComponent:subMenu , parentComponent : menu}"

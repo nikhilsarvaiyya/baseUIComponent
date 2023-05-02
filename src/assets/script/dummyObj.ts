@@ -9,8 +9,7 @@ let dummyObj: any = [
         title: "Loaders",
         icon: "octagon-half",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'spinner')[0]?.value 
-
+        data: codeData.filter((f: any) => f.type === 'spinner')[0]?.value
     },
     {
         id: 2,
@@ -19,7 +18,7 @@ let dummyObj: any = [
         title: "UI Cards",
         icon: "0-circle",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'card')[0]?.value 
+        data: codeData.filter((f: any) => f.type === 'card')[0]?.value
 
     },
     {
@@ -29,7 +28,7 @@ let dummyObj: any = [
         title: "Dynamic Tables",
         icon: "table",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'table')[0]?.value 
+        data: codeData.filter((f: any) => f.type === 'table')[0]?.value
 
     },
     {
@@ -44,17 +43,18 @@ let dummyObj: any = [
             key: "input",
             path: "input",
             title: "Inputs",
-            data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
-    
-        },{
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value
+        }, {
             id: 4,
             key: "select",
             path: "select",
             title: "Select",
-            data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
-    
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'select')[0]?.value
+
         }]
-        
+
 
     },
     {
@@ -69,28 +69,26 @@ let dummyObj: any = [
             key: "pie",
             path: "pie",
             title: "Pie Chart",
-            data: codeData.filter((f: any) => f.type === 'inputs')[0]?.value 
-    
-        },{
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'pie')[0]?.value
+
+        }, {
             id: 4,
             key: "bar",
             path: "bar",
             title: "Bar Chart",
-             data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
-    
-        },{
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'bar')[0]?.value
+
+        }, {
             id: 4,
             key: "donut",
             path: "donut",
             title: "Donut Chart",
-            data: codeData.filter((f: any) => f.type === 'select')[0]?.value 
+            description: "This is some text within a card body.",
+            data: codeData.filter((f: any) => f.type === 'donut')[0]?.value
         }]
-        
-
     }
-
 ]
-
-
 
 export default dummyObj

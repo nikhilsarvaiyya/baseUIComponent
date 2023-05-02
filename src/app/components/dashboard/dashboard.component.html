@@ -1,7 +1,7 @@
 <div class="grid gap-4 grid-cols-3" *ngIf="selectedComponentData;else noComponent">
   <div class=' card ' *ngFor="let comp of selectedComponentData">
 
-    <div class="card-header font-semibold bg-purple-200">
+    <div class="card-header font-semibold ">
       {{comp.title}}
 
 
@@ -10,7 +10,7 @@
         [state]="{ selectedComponent:comp, componentData:comp }"><i class="bi bi-eye"></i> </a>
 
     </div>
-    <div class="card-body bg-purple-100">
+    <div class="card-body ">
       <p class="card-text">
         {{comp.description}}
       </p>

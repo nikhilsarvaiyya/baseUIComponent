@@ -1,5 +1,5 @@
 
-
+<!-- <pre>{{getSelectedComponentDetail | json}}</pre> -->
 <div class="grid gap-4 grid-cols-3" *ngIf="getSelectedComponentDetail?.selectedComponent?.data; else NoData" >
     <div class=' card' style="min-height:200px" *ngFor="let sub of getSelectedComponentDetail?.selectedComponent?.data">
         <div class="card-header font-semibold bg-purple-00">

@@ -14,6 +14,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { DetailComponent } from './components/detail/detail.component';
 import { ListComponent } from './components/list/list.component';
 import { SanitizeHtmlPipe } from './pipe/sanitize-html.pipe';
+import { SubHeaderComponent } from './layout/sub-header/sub-header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SanitizeHtmlPipe } from './pipe/sanitize-html.pipe';
     PagenotfoundComponent,
     DetailComponent,
     ListComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    SubHeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -94,8 +94,7 @@ let codeData = [
                 css: "input[type=text],select{width:100%;padding:12px 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}input[type=submit]{width:100%;background-color:#4CAF50;color:white;padding:14px 20px;margin:8px 0;border:none;border-radius:4px;cursor:pointer}input[type=submit]:hover{background-color:#45a049}"
             }
         ]
-    }
-    ,
+    },
     {
         type: "select",
         value: [
@@ -108,6 +107,26 @@ let codeData = [
                 name: "Search",
                 html: "<select ><option>Two</option></select>",
                 css: ""
+            }
+        ]
+    },
+    {
+        type: "pie",
+        value: [
+            {
+                name: "normal ",
+                html: "<ol class='pie'><li class='piece' data-start='0' data-value='30'>30</li><li class='piece highlight' data-start='30' data-value='30'>30</li><li class='piece' data-start='60' data-value='40'>40</li><li class='piece big' data-start='100' data-value='260'>260</li></ol>",
+                css: " $width:250px;$col1:#f53342;$col2:#cd3456;$col3:#a20000;$col4:#fd8700;.pie{font-size:0;overflow:hidden}.piece{position:absolute;width:$width;height:$width*2;overflow:hidden;left:$width*1.5;@include transform-origin(left,center)}.piece.big{width:$width*2;height:$width*2;left:$width*.5;@include transform-origin(center,center)}.piece:before{content:'';position:absolute;width:$width;height:$width*2;left:-$width;border-radius:$width 0 0 $width;@include transform-origin(right,center)}.piece.big:before{left:0}.piece.big:after{content:'';position:absolute;width:$width;height:$width*2;left:$width;border-radius:0 $width $width 0}$colors-list:$col1 $col2 $col3 $col4;@each $current-color in $colors-list{$i:index($colors-list,$current-color);.piece:nth-of-type(#{$i}):before,.piece:nth-of-type(#{$i}):after{background-color:$current-color}}$rotate-list:30 60 100;@each $rotation in $rotate-list{$i:index($rotate-list,$rotation);.piece[data-start=''#{$rotation}'']{@include transform(rotate($rotation+deg))}}$rotate-list-2:30 40 260;@each $rotation2 in $rotate-list-2{$i:index($rotate-list-2,$rotation2);.piece[data-value=''#{$rotation2}'']:before{@include transform(rotate($rotation2+1+deg))}}"
+            }
+        ]
+    },
+    {
+        type: "bar",
+        value: [
+            {
+                name: "normal ",
+                html: "<ul class='chart'><li><span style='height:5%' title='HTML'></span></li><li><span style='height:70%' title='CSS'></span></li><li><span style='height:50%' title='JS'></span></li></ul>",
+                css: " .chart{display:table;table-layout:fixed;width:100%;max-width:700px;height:200px;margin:0 auto;background-image:linear-gradient(bottom,rgba(0,0,0,.1) 2%,transparent 2%);background-size:100% 50px;background-position:left top}.chart li{position:relative;display:table-cell;vertical-align:bottom;height:200px}.chart span{margin:0 1em;display:block;background:rgba(209,236,250,.75);animation:draw 1s ease-in-out}.chart span:before{position:absolute;left:0;right:0;top:85%;padding:5px 1em 0;display:block;text-align:center;content:attr(title);word-wrap:break-word}@keyframes draw{0%{height:0}}"
             }
         ]
     }

@@ -12,22 +12,22 @@ import dummyObj from 'src/assets/script/dummyObj';
 export class ListComponent {
   items = (dummyObj as any);
   selectedComponent: any = {}
-  getSelectedComponentDetail : any = {}
+  getSelectedComponentDetail: any = {}
   htmlCodeFormatter = htmlCodeFormatter;
   cssCodeFormatter = cssCodeFormatter;
   createDynamicStyle = createDynamicStyle
   getListId: any = ''
   getSubListId: any = ''
 
-  constructor(private route: ActivatedRoute,private location: Location) {
+  constructor(private route: ActivatedRoute, private location: Location) {
 
   }
 
   ngOnInit(): void {
-    
+
     this.updateComponent()
     this.setData()
-   
+
 
   }
 
@@ -44,8 +44,8 @@ export class ListComponent {
 
   setData() {
     let mergeCSS = []
-    for (let index = 0; index < this.selectedComponent?.data?.length; index++) {
-      mergeCSS.push(this.selectedComponent.data[index].css)
+    for (let index = 0; index < this.getSelectedComponentDetail?.selectedComponent?.data?.length; index++) {
+      mergeCSS.push(this.getSelectedComponentDetail?.selectedComponent?.data[index].css)
     }
     this.createDynamicStyle(mergeCSS as any)
 

@@ -1,0 +1,14 @@
+
+<div class="flex items-center justify-between h-10 text-white z-10 bg-blue-600 px-3">
+    <div class="flex-1">
+    {{getSelectedComponentDetail?.selectedComponent?.title}}
+    </div>
+    <div class=" ">
+        <ul class="flex items-center ">
+            <li>
+                <button (click)="toggleView('list')" class="bi bi-list text-xl ml-2"></button>
+                <button (click)="toggleView('grid')" class="bi bi-grid text-xl ml-2"></button>
+            </li>
+        </ul>
+    </div>
+</div>
