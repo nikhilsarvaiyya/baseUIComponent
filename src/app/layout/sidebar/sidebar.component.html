@@ -41,7 +41,7 @@
             }}</span>
             <span *ngIf="menu?.subTree"
             class="hidden h-5 pt-0.5 md:block px-1  ml-auto text-xs font-medium tracking-wide hover:text-red-500 hover:bg-red-50 hover:rounded-full">
-            <i (click)="showsubmenu(i); show===i ? show=-1: show=i" [ngClass]="show===i ? 'bi bi-caret-right-fill' : 'bi bi-caret-down-fill'"></i>
+            <i (click)="showsubmenu(i); show===i ? show=-1: show=i" [ngClass]="show===i ? 'bi bi-caret-down-fill' : 'bi bi-caret-right-fill'"></i>
           </span>
         </a>
         <ul *ngIf="show===i" >

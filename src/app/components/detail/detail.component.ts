@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { htmlCodeFormatter, cssCodeFormatter } from '../../utility/codeFormatter';
+import { htmlCodeFormatter, cssCodeFormatter,jsCodeFormatter } from '../../utility/codeFormatter';
 import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
+import { createDynamicScript } from 'src/app/utility/dynamicScript';
+
 import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-detail',
@@ -15,7 +17,9 @@ export class DetailComponent {
   getDetailId : any = ''
   htmlCodeFormatter = htmlCodeFormatter;
   cssCodeFormatter = cssCodeFormatter;
+  jsCodeFormatter=jsCodeFormatter;
   createDynamicStyle=createDynamicStyle;
+  createDynamicScript=createDynamicScript;
 
   constructor(private location: Location,private route: ActivatedRoute) {
 
@@ -26,6 +30,8 @@ export class DetailComponent {
     this.getParams()
     this.codeAccordian()
     this.createDynamicStyle(this.getSelectedComponentDetail.componentData['css'] as any)
+    this.createDynamicScript(this.getSelectedComponentDetail.componentData['js'] as any)
+    
     
   }
 
@@ -48,6 +54,9 @@ export class DetailComponent {
         case 'css':
           this.codeData.push({ title : "CSS", value: this.cssCodeFormatter(this.getSelectedComponentDetail.componentData[key]) })
           break;
+        case 'js':
+            this.codeData.push({title : "JS", value: this.jsCodeFormatter(this.getSelectedComponentDetail.componentData[key]) })
+            break;
         default:
           this.codeData.push({ title : "Others", value: this.getSelectedComponentDetail.componentData[key] })
           break;

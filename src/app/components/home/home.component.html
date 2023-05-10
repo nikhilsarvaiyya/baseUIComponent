@@ -1,0 +1,19 @@
+<div class="grid gap-4 grid-cols-3" *ngIf="list;else noComponent">
+    <div class='card' *ngFor="let li of list">
+      <div class="card-header font-semibold ">
+        {{li.title}}
+        <a class="float-right"
+          routerLink="/{{li.path}}"
+         ><i class="bi bi-eye"></i> </a>
+      </div>
+      <div class="card-body ">
+        <p class="card-text">
+          {{li.description}}
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <ng-template #noComponent>
+    Comming Soon
+  </ng-template>

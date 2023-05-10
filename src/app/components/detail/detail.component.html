@@ -1,9 +1,9 @@
 <div class="card mb-3">
     <div class="card-header"> {{getSelectedComponentDetail.selectedComponent.title}} View </div>
-    <div class="card-body p-3" [innerHTML]="getSelectedComponentDetail.componentData.html | sanitizeHtml">
+    <div class="card-body p-3 bg-blue-800" [innerHTML]="getSelectedComponentDetail.componentData.html | sanitizeHtml">
     </div>
 </div>
-<div ngbAccordion class="mb-3" *ngFor="let code of codeData">
+<div ngbAccordion class="mb-3 " *ngFor="let code of codeData">
     <div ngbAccordionItem *ngIf="code.value">
         <h2 ngbAccordionHeader>
             <button ngbAccordionButton> {{code.title}} - <i class="font-light text-sm indent-1"> {{getListId}} -

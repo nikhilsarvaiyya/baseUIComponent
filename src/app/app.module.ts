@@ -15,6 +15,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { ListComponent } from './components/list/list.component';
 import { SanitizeHtmlPipe } from './pipe/sanitize-html.pipe';
 import { SubHeaderComponent } from './layout/sub-header/sub-header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubHeaderComponent } from './layout/sub-header/sub-header.component';
     DetailComponent,
     ListComponent,
     SanitizeHtmlPipe,
-    SubHeaderComponent
+    SubHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

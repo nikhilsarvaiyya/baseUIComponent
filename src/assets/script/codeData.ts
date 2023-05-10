@@ -57,6 +57,13 @@ let codeData = [
                 html: "<i class='loader --7'></i>",
                 css: ".loader{--color:white;--size-mid:6vmin;--size-dot:1.5vmin;--size-bar:.4vmin;--size-square:3vmin;display: block;position: relative;width: 50%;}.loader::before,.loader::after{content:'';box-sizing:border-box;position:absolute}.loader.--7::before,.loader.--7::after{width:var(--size-square);height:var(--size-square);background-color:var(--color)}.loader.--7::before{top:calc(50% - var(--size-square));left:calc(50% - var(--size-square));animation:loader-6 2.4s cubic-bezier(0,0,.24,1.21) infinite}.loader.--7::after{top:50%;left:50%;animation:loader-7 2.4s cubic-bezier(0,0,.24,1.21) infinite}@keyframes loader-7{0%,100%{transform:none}25%{transform:translateX(-100%)}50%{transform:translateX(-100%) translateY(-100%)}75%{transform:translateY(-100%)}}"
             },
+            {
+                name: "Loader 12",
+                html: "<div class='lds-roller'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+                css: " .lds-roller{display:inline-block;position:relative;width:80px;height:80px}.lds-roller div{animation:lds-roller 1.2s cubic-bezier(.5,0,.5,1) infinite;transform-origin:40px 40px}.lds-roller div:after{content:'';display:block;position:absolute;width:7px;height:7px;border-radius:50%;background:#ccc;margin:-4px 0 0 -4px}.lds-roller div:nth-child(1){animation-delay:-.036s}.lds-roller div:nth-child(1):after{top:63px;left:63px}.lds-roller div:nth-child(2){animation-delay:-.072s}.lds-roller div:nth-child(2):after{top:68px;left:56px}.lds-roller div:nth-child(3){animation-delay:-.108s}.lds-roller div:nth-child(3):after{top:71px;left:48px}.lds-roller div:nth-child(4){animation-delay:-.144s}.lds-roller div:nth-child(4):after{top:72px;left:40px}.lds-roller div:nth-child(5){animation-delay:-.18s}.lds-roller div:nth-child(5):after{top:71px;left:32px}.lds-roller div:nth-child(6){animation-delay:-.216s}.lds-roller div:nth-child(6):after{top:68px;left:24px}.lds-roller div:nth-child(7){animation-delay:-.252s}.lds-roller div:nth-child(7):after{top:63px;left:17px}.lds-roller div:nth-child(8){animation-delay:-.288s}.lds-roller div:nth-child(8):after{top:56px;left:12px}@keyframes lds-roller{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}"
+            },
+
+           
 
         ]
     },
@@ -100,13 +107,14 @@ let codeData = [
         value: [
             {
                 name: "Search",
-                html: "<select ><option>one</option></select>",
-                css: ""
+                html: "<select id='mounth'><option value='hide'>-- Month --</option><option value='january'>January</option><option value='february'>February</option><option value='march'>March</option><option value='april'>April</option><option value='may'>May</option><option value='june'>June</option><option value='july'>July</option><option value='august'>August</option><option value='september'>September</option><option value='october'>October</option><option value='november'>November</option><option value='december'>December</option></select>",
+                css: ".select-hidden{display:none;visibility:hidden;padding-right:10px}.select{cursor:pointer;display:inline-block;position:relative;font-size:16px;color:#fff;width:220px;height:40px}.select-styled{position:absolute;top:0;right:0;bottom:0;left:0;background-color:#c0392b;padding:8px 15px}.select-styled:after{content:'';width:0;height:0;border:7px solid transparent;border-color:#fff transparent transparent transparent;position:absolute;top:16px;right:10px}.select-styled:hover{background-color:#b83729}.select-styled:active,.select-styled.active{background-color:#ab3326}.select-styled:active:after,.select-styled.active:after{top:9px;border-color:transparent transparent #fff transparent}.select-options{display:none;position:absolute;top:100%;right:0;left:0;z-index:999;margin:0;padding:0;list-style:none;background-color:#ab3326}.select-options li{margin:0;padding:12px 0;text-indent:15px;border-top:1px solid #962d22}.select-options li:hover,.select-options li.is-selected{color:#c0392b;background:#fff}.select-options li[rel='hide']{display:none}",
+                js:"$('select').each((function(){var e=$(this),t=$(this).children('option').length;e.addClass('select-hidden'),e.wrap(`<div class='select'></div>`),e.after(`<div class='select-styled'></div>`);var i=e.next('div.select-styled');i.text(e.children('option').eq(0).text());for(var s=$('<ul />',{class:'select-options'}).insertAfter(i),l=0;l<t;l++)$('<li />',{text:e.children('option').eq(l).text(),rel:e.children('option').eq(l).val()}).appendTo(s);var c=s.children('li');i.click((function(e){e.stopPropagation(),$('div.select-styled.active').not(this).each((function(){$(this).removeClass('active').next('ul.select-options').hide()})),$(this).toggleClass('active').next('ul.select-options').toggle()})),c.click((function(t){t.stopPropagation(),i.text($(this).text()).removeClass('active'),e.val($(this).attr('rel')),s.hide()})),$(document).click((function(){i.removeClass('active'),s.hide()}))}));"
             },
             {
                 name: "Search",
-                html: "<select ><option>Two</option></select>",
-                css: ""
+                html: "<div class='dropdown'><span>Mouse over me</span><div class='dropdown-content'><p>Hello World!</p></div></div>",
+                css: ".dropdown{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background-color:#f9f9f9;min-width:160px;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);padding:12px 16px;z-index:1}.dropdown:hover .dropdown-content{display:block}"
             }
         ]
     },

@@ -1,14 +1,10 @@
 <div class="grid gap-4 grid-cols-3" *ngIf="selectedComponentData;else noComponent">
   <div class=' card ' *ngFor="let comp of selectedComponentData">
-
     <div class="card-header font-semibold ">
       {{comp.title}}
-
-
       <a class="float-right"
         routerLink="/component/{{comp.subTree ? 'page' : 'list'}}/{{getParentComponentDetail?.selectedComponent?.path}}/{{comp.path}}"
         [state]="{ selectedComponent:comp, componentData:comp }"><i class="bi bi-eye"></i> </a>
-
     </div>
     <div class="card-body ">
       <p class="card-text">
