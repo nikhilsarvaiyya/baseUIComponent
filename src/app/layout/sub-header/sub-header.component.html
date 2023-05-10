@@ -1,7 +1,7 @@
-
 <div class="flex items-center justify-between h-10 text-white z-10 bg-blue-600 px-3">
     <div class="flex-1">
-    {{getSelectedComponentDetail?.selectedComponent?.title}}
+        <button (click)="goBack()" class="bi bi-arrow-left mr-1 "></button>
+        {{getSelectedComponentDetail?.selectedComponent?.title || "Dashboard"}}
     </div>
     <div class=" ">
         <ul class="flex items-center ">

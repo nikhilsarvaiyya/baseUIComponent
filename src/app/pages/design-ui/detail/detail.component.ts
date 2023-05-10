@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { htmlCodeFormatter, cssCodeFormatter,jsCodeFormatter } from '../../utility/codeFormatter';
+import { htmlCodeFormatter, cssCodeFormatter,jsCodeFormatter } from '../../../utility/codeFormatter';
 import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
 import { createDynamicScript } from 'src/app/utility/dynamicScript';
 

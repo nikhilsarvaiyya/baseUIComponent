@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentChecked, Inject, Injectable } from '@angular/core';
-// import * as data from '../../../assets/json/items.json'
+
 import { Location } from '@angular/common';
-import { htmlCodeFormatter, cssCodeFormatter } from '../../utility/codeFormatter';
+import { htmlCodeFormatter, cssCodeFormatter } from '../../../utility/codeFormatter';
 import { ActivatedRoute } from '@angular/router'
 import { createDynamicStyle } from 'src/app/utility/dynamicStyle';
 import dummyObj from 'src/assets/script/dummyObj';

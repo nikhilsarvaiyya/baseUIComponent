@@ -7,15 +7,11 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   list : any = [{
     title:"Components",
-    path:"component/page/dashboard",
-    description:"Component Details"
-  },{
-    title:"Design",
-    path:"design/page/dashboard",
+    path:"design/ui/page/dashboard",
     description:"Component Details"
   },{
     title:"Table",
-    path:"table/page/dashboard",
+    path:"design/table/page/dashboard",
     description:"Table Details"
   }]
 }

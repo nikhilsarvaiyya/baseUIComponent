@@ -6,8 +6,8 @@ import { Location } from '@angular/common';
 })
 export class AppComponent {
 
-  menu: any = "component"
-  myMenus: any = ['component', 'cards']
+  menu: any = "design"
+  myMenus: any = ['design', 'cards']
   
   constructor(private location: Location) {
 
@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   ngAfterCiewChecked() {
-    console.log(this.location.path())
+    
   }
 
   ngAfterContentChecked() {

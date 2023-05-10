@@ -1,0 +1,14 @@
+body{
+    font-size:40px
+}
+
+table.table-component{
+    overflow: auto;
+    width:100%;
+    
+}
+table.table-component th,
+table.table-component td{
+   white-space: nowrap;
+   padding: 5px;
+}

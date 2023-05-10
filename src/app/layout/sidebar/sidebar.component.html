@@ -1,18 +1,20 @@
 <!-- Sidebar -->
 <!-- top-14 -->
+
 <div
   class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
   <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
 
     <ul class="flex flex-col  space-y-1 " *ngIf="components"><!-- py-4 -->
+
       <li class="px-5 hidden md:block">
         <div class="flex flex-row items-center h-8">
           <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Main</div>
         </div>
       </li>
       <li>
-        <a routerLinkActive="menu-active" routerLink="component/page/dashboard" 
-        [state]="{ selectedComponent:null, parentComponent : null  }"
+        <a routerLinkActive="menu-active" routerLink="{{routePath}}/{{routeName}}/dashboard"
+          [state]="{ selectedComponent:null, parentComponent : null  }"
           class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
           <span class="inline-flex justify-center items-center ml-4">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -26,9 +28,9 @@
         </a>
       </li>
 
-      <li  *ngFor="let menu of components;let i = index  ">
+      <li *ngFor="let menu of components;let i = index  ">
 
-        <a routerLinkActive="menu-active" routerLink="component/{{menu.subTree ? 'page':'list'}}/{{menu.path}}"
+        <a routerLinkActive="menu-active" routerLink="{{routePath}}/{{menu.subTree ? 'page':'list'}}/{{menu.path}}"
           [state]="{ selectedComponent:menu, parentComponent : null  }"
           class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
           <span class="inline-flex justify-center items-center ml-4">
@@ -36,17 +38,18 @@
           </span>
           <span class="ml-2 text-sm tracking-wide truncate">{{menu?.title}}</span>
           <!-- <span class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-blue-500 bg-indigo-50 rounded-full">New</span> -->
-          <span *ngIf="!menu?.subTree"
+          <span *ngIf="!menu?.subTree && menu?.data?.length > 5"
             class="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">{{menu?.data?.length
             }}</span>
-            <span *ngIf="menu?.subTree"
+          <span *ngIf="menu?.subTree "
             class="hidden h-5 pt-0.5 md:block px-1  ml-auto text-xs font-medium tracking-wide hover:text-red-500 hover:bg-red-50 hover:rounded-full">
-            <i (click)="showsubmenu(i); show===i ? show=-1: show=i" [ngClass]="show===i ? 'bi bi-caret-down-fill' : 'bi bi-caret-right-fill'"></i>
+            <i (click)="showsubmenu(i); show===i ? show=-1: show=i"
+              [ngClass]="show===i ? 'bi bi-caret-down-fill' : 'bi bi-caret-right-fill'"></i>
           </span>
         </a>
-        <ul *ngIf="show===i" >
+        <ul *ngIf="show===i">
           <li *ngFor="let subMenu of menu.subTree; let j=index ">
-            <a routerLinkActive="sub-menu-active" routerLink="component/list/{{menu.path}}/{{subMenu.path}}"
+            <a routerLinkActive="sub-menu-active" routerLink="design/ui/list/{{menu.path}}/{{subMenu.path}}"
               [state]="{ selectedComponent:subMenu , parentComponent : menu}"
               class=" indent-4 relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
               <span class="inline-flex justify-center items-center ml-4"></span>

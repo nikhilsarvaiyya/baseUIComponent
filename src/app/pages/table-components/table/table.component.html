@@ -1,0 +1,22 @@
+
+<table class="table-component">
+    <tr >
+        <th *ngFor="let thead of tableHead">{{thead.title}}</th>
+    </tr>
+  
+    <tr *ngFor="let tBody of tableBody.slice(0, 5);" >
+        <td><img src="{{tBody.image}}" width="32" /></td>
+        <td>{{tBody.firstName}} {{tBody.lastName}}</td>
+        <td>{{tBody.age}}</td>
+        <td>{{tBody.gender}}</td>
+        <td>{{tBody.email}}</td>
+        <td>{{tBody.phone}}</td>
+        
+        <!-- <td>{{tBody.address}}</td>
+        <td>{{tBody.bank}}</td>
+        <td>{{tBody.company}}</td> -->
+        
+        
+    </tr>
+   
+</table>

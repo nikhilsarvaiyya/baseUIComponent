@@ -22,4 +22,8 @@ export class SubHeaderComponent {
     console.log("view",view)
   }
 
+  goBack(){
+    this.location.back()
+  }
+
 }

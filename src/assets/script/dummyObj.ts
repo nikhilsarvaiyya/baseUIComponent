@@ -1,7 +1,6 @@
 import codeData from "./codeData"
 
 let dummyObj: any = [
-
     {
         id: 1,
         key: "spinner",
@@ -19,7 +18,6 @@ let dummyObj: any = [
         icon: "0-circle",
         description: "This is some text within a card body.",
         data: codeData.filter((f: any) => f.type === 'card')[0]?.value
-
     },
     {
         id: 3,
@@ -29,7 +27,6 @@ let dummyObj: any = [
         icon: "table",
         description: "This is some text within a card body.",
         data: codeData.filter((f: any) => f.type === 'table')[0]?.value
-
     },
     {
         id: 4,
@@ -54,8 +51,6 @@ let dummyObj: any = [
             data: codeData.filter((f: any) => f.type === 'select')[0]?.value
 
         }]
-
-
     },
     {
         id: 4,
