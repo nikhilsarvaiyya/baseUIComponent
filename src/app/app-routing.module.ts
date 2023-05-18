@@ -7,6 +7,7 @@ import { PagenotfoundComponent } from './comman/pagenotfound/pagenotfound.compon
 import { DetailComponent } from './pages/design-ui/detail/detail.component';
 import { ListComponent } from './pages/design-ui/list/list.component';
 import { TableComponent } from './pages/table-components/table/table.component';
+import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'design/ui/detail/:listId/:subListId/:detailId', component: DetailComponent, pathMatch: 'full' },
   { path: 'design/table/list/:tableId', component: TableComponent, pathMatch: 'full' },
   { path: 'design/table/page/:tableId', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'admin/component/designui/form-card', component: FormCardComponent, pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full' },
 ];
 

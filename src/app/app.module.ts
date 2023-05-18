@@ -21,6 +21,9 @@ import { HomeComponent } from './layout/home/home.component';
 import { LoadingComponent } from './comman/loading/loading.component';
 import { CardComponent } from './comman/card/card.component';
 import { TableComponent } from './pages/table-components/table/table.component';
+import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
+
+import { CircularJsonPipe } from './pipe/circular-json.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { TableComponent } from './pages/table-components/table/table.component';
     LoadingComponent,
     CardComponent,
     TableComponent,
+    FormCardComponent,
+    CircularJsonPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,7 @@ import { TableComponent } from './pages/table-components/table/table.component';
     HttpClientModule,
     NgbModule,
     CommonModule,
+    
   ],
   providers: [],
   schemas: [
