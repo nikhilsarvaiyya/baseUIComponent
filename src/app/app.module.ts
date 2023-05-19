@@ -1,9 +1,10 @@
-import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {CommonModule} from '@angular/common'; 
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +25,11 @@ import { TableComponent } from './pages/table-components/table/table.component';
 import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
 
 import { CircularJsonPipe } from './pipe/circular-json.pipe';
+import { FormCardListComponent } from './admin/components/designui/form-card-list/form-card-list.component';
+import { RestApiSettingService } from './services/rest-api-setting.service';
+import { FormCardService } from './services/form-card.service';
+import { SelectedItemService } from './services/selected-item.service';
+import { OrderByPipe } from './pipe/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,9 @@ import { CircularJsonPipe } from './pipe/circular-json.pipe';
     TableComponent,
     FormCardComponent,
     CircularJsonPipe,
-    
+    FormCardListComponent,
+    OrderByPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -50,9 +58,14 @@ import { CircularJsonPipe } from './pipe/circular-json.pipe';
     HttpClientModule,
     NgbModule,
     CommonModule,
-    
+    ReactiveFormsModule
+
   ],
-  providers: [],
+  providers: [
+    RestApiSettingService,
+    FormCardService,
+    SelectedItemService
+  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 })
 export class SidebarComponent {
   show = -1;
-  components = null;
+  components :any = null;
   routePath : any = '';
   routeName: any = ''
   constructor(private location: Location) {
