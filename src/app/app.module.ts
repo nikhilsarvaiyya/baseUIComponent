@@ -30,6 +30,7 @@ import { RestApiSettingService } from './services/rest-api-setting.service';
 import { FormCardService } from './services/form-card.service';
 import { SelectedItemService } from './services/selected-item.service';
 import { OrderByPipe } from './pipe/order-by.pipe';
+import { SocketioService } from './services/socketio.service';
 
 @NgModule({
   declarations: [
@@ -58,13 +59,14 @@ import { OrderByPipe } from './pipe/order-by.pipe';
     HttpClientModule,
     NgbModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   providers: [
     RestApiSettingService,
     FormCardService,
-    SelectedItemService
+    SelectedItemService,
+    SocketioService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

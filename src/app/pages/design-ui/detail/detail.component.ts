@@ -44,7 +44,7 @@ export class DetailComponent {
     this.codeData = []
 
     for (let key in this.getSelectedComponentDetail.componentData) {
-      console.log('key: ' + key + ',  value: ' + this.getSelectedComponentDetail.componentData[key]);
+      // console.log('key: ' + key + ',  value: ' + this.getSelectedComponentDetail.componentData[key]);
       switch (key) {
         case 'name':
           break;

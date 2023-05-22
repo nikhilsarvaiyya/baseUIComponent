@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CircularJsonPipe implements PipeTransform {
 
   public transform(value: object): void {
-    console.log(value);
+    // console.log(value);
     return;
 }
 

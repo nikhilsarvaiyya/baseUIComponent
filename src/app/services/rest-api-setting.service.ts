@@ -20,7 +20,7 @@ export class RestApiSettingService {
   //Get Call
   getCall(path: any): Observable<any> {
     let API_URL = `${this.REST_API}${path}`;
-    return this.httpClient.get(API_URL);
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders });
   }
 
   //Get Single Item
@@ -66,7 +66,7 @@ export class RestApiSettingService {
       // Handle server error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log(errorMessage);
+   
     return throwError(() => {
       errorMessage;
     });

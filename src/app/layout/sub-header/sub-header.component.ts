@@ -19,7 +19,7 @@ export class SubHeaderComponent {
   }
 
   toggleView(view : any){
-    console.log("view",view)
+    
   }
 
   goBack(){

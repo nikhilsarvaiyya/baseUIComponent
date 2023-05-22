@@ -39,7 +39,7 @@ export class FormCardComponent implements OnInit{
 
   onSubmit(): void { 
     this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => {
-      console.log(data)
+     
     })
   }
 

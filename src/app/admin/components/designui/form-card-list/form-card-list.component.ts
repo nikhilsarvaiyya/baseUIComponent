@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormCardService } from 'src/app/services/form-card.service';
-
+import { SocketioService } from 'src/app/services/socketio.service';
 @Component({
   selector: 'app-form-card-list',
   templateUrl: './form-card-list.component.html'
@@ -8,11 +8,13 @@ import { FormCardService } from 'src/app/services/form-card.service';
 export class FormCardListComponent implements OnInit {
   cardList: any = []
   setSingleItem: any = null;
+  title = 'socketio-angular';
 
-  constructor(private fcservice: FormCardService) { }
+  constructor(private fcservice: FormCardService, private socketService : SocketioService ) { }
 
   ngOnInit(): void {
     this.cardList = this.fcservice.GetCards();
+    this.socketService.setupSocketConnection();
   }
 
   selectItem(data: any) {
@@ -23,7 +25,7 @@ export class FormCardListComponent implements OnInit {
 
   deleteItem(data: any) {
     this.fcservice.deleteCard(data._id).subscribe((data) => {
-      console.log(data)
+      
     })
   }
   updateItem(data: any) {

@@ -19,7 +19,7 @@ export class FormCardService {
 
   // Add
   AddCard(data: Card) {
-    console.log("asdasd")
+    // console.log("asdasd")
     return this.restApi.postCall('/add-card', data)
   }
 

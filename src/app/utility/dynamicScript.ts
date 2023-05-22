@@ -5,11 +5,11 @@ var script_sheet = document.createElement('script');
 
 // success event 
 script_sheet.addEventListener("load", () => {
-  console.log("File loaded")
+  // console.log("File loaded")
 });
  // error event
 script_sheet.addEventListener("error", (ev) => {
-  console.log("Error on loading file", ev);
+  // console.log("Error on loading file", ev);
 });
 setTimeout(() => {
 if (script_sheet) {
