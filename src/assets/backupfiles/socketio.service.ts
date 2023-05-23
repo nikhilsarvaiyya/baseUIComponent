@@ -10,7 +10,6 @@ export class SocketioService {
   constructor() { }
 
   setupSocketConnection() {
-    //console.log("environment.SOCKET_ENDPOINT",io(environment.SOCKET_ENDPOINT))
-    this.socket = io(environment.SOCKET_ENDPOINT);
+    this.socket = io(environment.REST_API);
   }
 }

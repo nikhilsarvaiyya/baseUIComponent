@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Card } from './form-card';
-import { RestApiSettingService } from './rest-api-setting.service';
+import { RestApiSettingService } from '../rest-api-setting.service';
+import { io } from 'socket.io-client';
+import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class FormCardService {
-
+  socket : any;
   constructor(private restApi: RestApiSettingService) { }
+
+  setupSocketConnection() {
+    this.socket = io(environment.REST_API);
+  }
 
   // Get all Icons
   getIcons() {

@@ -1,16 +1,12 @@
 <div>
-
   <div
     class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
     <app-header />
-
-     <app-sidebar  *ngIf="menu"/> 
-
-    <div class="h-full  mb-10  mt-14" [ngClass]="{'ml-14 md:ml-64 ': menu}"> 
+    <app-sidebar *ngIf="menu" />
+    <div class="h-full  mb-10  mt-14" [ngClass]="{'ml-14 md:ml-64 ': menu}">
       <app-sub-header *ngIf="menu " />
       <div class="container-full m-4">
-        <router-outlet ></router-outlet>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

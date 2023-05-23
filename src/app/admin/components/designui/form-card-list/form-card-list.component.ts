@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormCardService } from 'src/app/services/form-card.service';
-import { SocketioService } from 'src/app/services/socketio.service';
+import { FormCardService } from 'src/app/services/form-card/form-card.service';
+import { SocketioService } from 'src/assets/backupfiles/socketio.service';
 @Component({
   selector: 'app-form-card-list',
   templateUrl: './form-card-list.component.html'

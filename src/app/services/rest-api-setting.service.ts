@@ -5,17 +5,22 @@ import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestApiSettingService {
+ 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = '';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    console.log(environment.REST_API)
+    this.REST_API = `${environment.REST_API}${environment.API_EXTENDED}`
+   }
 
   //Get Call
   getCall(path: any): Observable<any> {

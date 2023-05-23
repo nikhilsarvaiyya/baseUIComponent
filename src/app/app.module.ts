@@ -27,10 +27,10 @@ import { FormCardComponent } from './admin/components/designui/form-card/form-ca
 import { CircularJsonPipe } from './pipe/circular-json.pipe';
 import { FormCardListComponent } from './admin/components/designui/form-card-list/form-card-list.component';
 import { RestApiSettingService } from './services/rest-api-setting.service';
-import { FormCardService } from './services/form-card.service';
-import { SelectedItemService } from './services/selected-item.service';
+import { FormCardService } from './services/form-card/form-card.service';
+
 import { OrderByPipe } from './pipe/order-by.pipe';
-import { SocketioService } from './services/socketio.service';
+import { SocketioService } from '../assets/backupfiles/socketio.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,6 @@ import { SocketioService } from './services/socketio.service';
   providers: [
     RestApiSettingService,
     FormCardService,
-    SelectedItemService,
     SocketioService
   ],
   schemas: [

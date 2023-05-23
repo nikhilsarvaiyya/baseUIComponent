@@ -1,6 +1,6 @@
 import { Component, OnInit,NgZone  } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validator, Validators } from "@angular/forms";
-import { FormCardService } from 'src/app/services/form-card.service';
+import { FormCardService } from 'src/app/services/form-card/form-card.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-card',
@@ -35,12 +35,15 @@ export class FormCardComponent implements OnInit{
   }
 
   onSubmit(): void { 
-    this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => { })
+    this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => { 
+      this.resetForm()
+    })
   }
 
   updateData(){
     this.fcservice.updateCard(this.selectedData._id , this.saveDataForm.value).subscribe((data) => {
       console.log({data})
+      this.resetForm()
      })
   }
   
@@ -52,5 +55,10 @@ export class FormCardComponent implements OnInit{
       icon: [updateItem.icon,Validators.required],
       description: [updateItem.description,Validators.required]
     });
+  }
+
+  resetForm(){
+    this.updateButton = false
+    this.saveDataForm.reset()
   }
 }
