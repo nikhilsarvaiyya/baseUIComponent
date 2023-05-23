@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class FormCardComponent implements OnInit{
   saveDataForm: FormGroup;
-  allIcons: any = []
-
- 
+  allIcons: any = [];
+  updateButton : boolean = false;
+  selectedData : any = {}
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -27,9 +27,6 @@ export class FormCardComponent implements OnInit{
       icon: ["",Validators.required],
       description: ["",Validators.required]
     });
-
-
-    
   }
 
   ngOnInit(): void {
@@ -38,9 +35,22 @@ export class FormCardComponent implements OnInit{
   }
 
   onSubmit(): void { 
-    this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => {
-     
-    })
+    this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => { })
   }
 
+  updateData(){
+    this.fcservice.updateCard(this.selectedData._id , this.saveDataForm.value).subscribe((data) => {
+      console.log({data})
+     })
+  }
+  
+  setToUpdateItem(updateItem: any) {
+    this.updateButton = true
+    this.selectedData = updateItem
+    this.saveDataForm = this.formBuilder.group({
+      title: [updateItem.title,Validators.required],
+      icon: [updateItem.icon,Validators.required],
+      description: [updateItem.description,Validators.required]
+    });
+  }
 }

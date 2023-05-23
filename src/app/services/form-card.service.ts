@@ -12,6 +12,7 @@ export class FormCardService {
   getIcons() {
     return this.restApi.getCall('/icons')
   }
+  
   // Get all Cards
   GetCards() {
     return this.restApi.getCall('')
@@ -19,7 +20,6 @@ export class FormCardService {
 
   // Add
   AddCard(data: Card) {
-    // console.log("asdasd")
     return this.restApi.postCall('/add-card', data)
   }
 
@@ -30,7 +30,7 @@ export class FormCardService {
 
   // Update
   updateCard(id: any, data: any) {
-    return this.restApi.postCall('/update-card/' + id, data)
+    return this.restApi.putCall('/update-card/' + id, data)
   }
 
   // Delete

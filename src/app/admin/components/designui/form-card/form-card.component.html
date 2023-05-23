@@ -1,14 +1,15 @@
 <div class="row">
-    
+
     <div class="col-md-4">
-        <form novalidate  [formGroup]="saveDataForm" (ngSubmit)="onSubmit()">
+        <form novalidate [formGroup]="saveDataForm" (ngSubmit)="onSubmit(); saveDataForm.reset()">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Title" formControlName="title"   >
+                <input type="text" class="form-control" name="title" id="title" placeholder="Title"
+                    formControlName="title">
             </div>
             <div class="form-group">
                 <label for="icon">Icon Name</label>
-                <select class="form-select" formControlName="icon" > 
+                <select class="form-select" formControlName="icon">
                     <option value="">Choose Icon</option>
                     <option *ngFor="let icon of allIcons | async" [ngValue]="icon.name">
                         {{ icon.displayName }}
@@ -18,19 +19,26 @@
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea formControlName="description" class="form-control" id="description" rows="3" ></textarea>
+                <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
             </div>
             
-            <button type="submit"  
-            [disabled]="saveDataForm.invalid"
-            [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
-            class="text-white py-2 px-4 rounded mt-2"
-            >Submit</button>
+            <div *ngIf="updateButton; else submit">
+                <button type="button" (click)="updateData()" [disabled]="saveDataForm.invalid"
+                    [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                    class="text-white py-2 px-4 rounded mt-2 mr-2 ">Update</button>
+            </div>
+            <ng-template #submit>
+                <button type="submit" [disabled]="saveDataForm.invalid"
+                    [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                    class="text-white py-2 px-4 rounded mt-2 mr-2 ">Submit</button>
+            </ng-template>
+            <button type="button" class="py-2 px-4 rounded mt-2 mr-2 border hover:bg-gray-200 ">Reset</button>
+            
+
         </form>
 
     </div>
     <div class="col-md-8">
-       
-        <app-form-card-list></app-form-card-list>
+        <app-form-card-list (updateItemEvent)="setToUpdateItem($event)"></app-form-card-list>
     </div>
 </div>
