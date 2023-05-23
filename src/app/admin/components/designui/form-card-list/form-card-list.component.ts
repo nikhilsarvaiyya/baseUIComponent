@@ -10,14 +10,27 @@ export class FormCardListComponent implements OnInit {
 
   cardList: any = []
   setSingleItem: any = null;
-  title = 'socketio-angular';
+  page = 1;
 
-  constructor(private fcservice: FormCardService, private socketService : SocketioService ) { }
+  constructor(private fcservice: FormCardService, private socketService: SocketioService) { }
 
   ngOnInit(): void {
-    this.cardList = this.fcservice.GetCards();
+
+    this.fcservice.GetCards().subscribe((data) => {
+      this.cardList = data?.response;
+    });
     this.socketService.setupSocketConnection();
   }
+
+  //   getPageFromService(event:any) {
+  //     let option = {
+  //       page:this.page
+  //     }
+  //     this.fcservice.GetCards().subscribe((data) => {
+  //       this.cardList = data?.response;
+  //     });
+  // }
+
 
   selectItem(data: any) {
     this.fcservice.GetCard(data._id).subscribe((data) => {
@@ -26,18 +39,11 @@ export class FormCardListComponent implements OnInit {
   }
 
   deleteItem(data: any) {
-    this.fcservice.deleteCard(data._id).subscribe((data) => {
-      
-    })
+    this.fcservice.deleteCard(data._id).subscribe((data) => { })
   }
+
   updateItem(data: any) {
     this.updateItemEvent.emit(data);
-    
-    // this.fcservice.updateCard(data._id,data).subscribe((data) => {
-    //   console.log(data)
-    // })
   }
-  
-
 
 }
