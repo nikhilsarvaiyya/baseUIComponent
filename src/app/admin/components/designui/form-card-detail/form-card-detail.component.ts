@@ -1,20 +1,23 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validator, Validators } from "@angular/forms";
+import { FormCardDetailService } from 'src/app/services/form-card-detail/form-card-detail.service';
 import { FormCardService } from 'src/app/services/form-card/form-card.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-form-card-list',
-  templateUrl: './form-card-list.component.html'
+  selector: 'app-form-card-detail',
+  templateUrl: './form-card-detail.component.html'
 })
-export class FormCardListComponent implements OnInit {
+export class FormCardDetailComponent implements OnInit {
   saveDataForm: FormGroup;
   allIcons: any = [];
   updateButton: boolean = false;
   selectedData: any = {}
-
+  cardList : any = []
   constructor(
     private formBuilder: FormBuilder,
+    private fcdservice: FormCardDetailService,
     private fcservice: FormCardService,
+    
     // private ngZone: NgZone,
     // private router: Router,
   ) {
@@ -23,42 +26,42 @@ export class FormCardListComponent implements OnInit {
 
   createForm(): any {
     this.saveDataForm = this.formBuilder.group({
-      key:'',
-      title: ["", Validators.required],
-      path: '',
-      icon: '',
-      description: ["", Validators.required]
+      uid:["", Validators.required],
+      html: ["", Validators.required],
+      css: "",
+      js: "",
     });
   }
 
   ngOnInit(): void {
     this.createForm()
-    this.allIcons = this.fcservice.getIcons();
     this.setKey()
+    this.fcservice.GetCards().subscribe((data) => {
+      this.cardList = data?.response?.data;
+    });
     
   }
 
   setKey(){
-    this.saveDataForm.get("title").valueChanges.subscribe(selectedValue => {
-      this.saveDataForm.patchValue({
-        key: selectedValue?.replace(/\s/g, '')?.toLowerCase(),
-        path: selectedValue?.replace(/\s/g, '')?.toLowerCase()
-      });
-      setTimeout(() => {
-        console.log(this.saveDataForm.value)
-      })
-    })
+    // this.saveDataForm.get("menu").valueChanges.subscribe(selectedValue => {
+    //   this.saveDataForm.patchValue({
+    //     uid: selectedValue,
+    //   });
+    //   setTimeout(() => {
+    //     console.log(this.saveDataForm.value)
+    //   })
+    // })
   }
 
   onSubmit(): void {
-    console.log(this.saveDataForm.value)
-    this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => {
+    
+    this.fcdservice.AddCardDetail(this.saveDataForm.value).subscribe((data) => {
       this.resetForm()
     })
   }
 
   updateData() {
-    this.fcservice.updateCard(this.selectedData._id, this.saveDataForm.value).subscribe((data) => {
+    this.fcdservice.updateCardDetail(this.selectedData._id, this.saveDataForm.value).subscribe((data) => {
       console.log({ data })
       this.resetForm()
     })
@@ -69,11 +72,12 @@ export class FormCardListComponent implements OnInit {
     this.selectedData = updateItem;
     
     this.saveDataForm = this.formBuilder.group({
-      title: [updateItem.title, Validators.required],
-      icon: updateItem.icon,
-      description: [updateItem.description, Validators.required]
+      uid: updateItem.uid,
+      html: [updateItem.html, Validators.required],
+      css: updateItem.css,
+      js: updateItem.js
     });
-  
+    this.setKey()
   }
 
   resetForm() {

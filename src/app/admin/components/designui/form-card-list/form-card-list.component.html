@@ -1,40 +1,48 @@
-<div class="table-responsive">
-  <app-comman-table></app-comman-table>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Icon</th>
-        <th scope="col">Description</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr [ngClass]="setSingleItem?._id === card?._id ? 'bg-info' : ''"
-        *ngFor="let card of cardList?.data  | orderBy:'_id':'desc' ; let i = index ">
-        <th scope="row">{{i+1}}</th>
-        <td class="break-all">{{card.title}}</td>
-        <td class="break-all">{{card.icon}}</td>
-        <td class="break-all">{{card.description}}</td>
-        <td class="w-32">
-          <button class="btn btn-primary btn-sm mr-1  bi bi-eye-fill text-white" (click)="selectItem(card)"></button>
-          <button class="btn btn-secondary btn-sm mr-1  bi bi-pencil text-white" (click)="updateItem(card)"></button>
-          <button class="btn btn-warning btn-sm mr-1  bi bi-trash-fill text-white" (click)="deleteItem(card)"></button>
-        </td>
-      </tr>
+<div class="row">
 
-    </tbody>
-  </table>
-
-  <!-- <ngb-pagination
-  (pageChange)="getPageFromService($event)"
-   [collectionSize]="cardList?.totalPosts" 
-  [(page)]="page" 
-  aria-label="Custom pagination">
-    <ng-template ngbPaginationPrevious>Prev</ng-template>
-    <ng-template ngbPaginationNext>Next</ng-template>
-    <ng-template ngbPaginationNumber let-p >{{ p }}</ng-template>
-  </ngb-pagination> -->
-
+  <div class="col-md-4">
+      <form novalidate [formGroup]="saveDataForm" (ngSubmit)="onSubmit(); saveDataForm.reset()">
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" name="title" id="title" placeholder="Title"
+                  formControlName="title">
+          </div>
+          <div class="form-group" *ngIf="!updateButton">
+            <label for="title">Path</label>
+            <input  type="text" class="form-control" name="path" id="path" placeholder="Path"
+                formControlName="path">
+        </div>
+          <div class="form-group">
+              <label for="icon">Icon Name</label>
+              <select class="form-select" formControlName="icon">
+                  <option value="">Choose Icon</option>
+                  <option *ngFor="let icon of allIcons | async" [ngValue]="icon.name">
+                      {{ icon.displayName }}
+                  </option>
+              </select>
+              <!-- <input type="text" class="form-control" id="icon" placeholder="Icon" formControlName="icon"> -->
+          </div>
+          <div class="form-group">
+              <label for="description">Description</label>
+              <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
+          </div>
+          <div class="float-left">
+              <div *ngIf="updateButton; else submit">
+                  <button type="button" (click)="updateData()" [disabled]="saveDataForm.invalid"
+                      [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                      class="text-white py-2 px-4 rounded mt-2 mr-2 ">Update</button>
+              </div>
+              <ng-template #submit>
+                  <button type="submit" [disabled]="saveDataForm.invalid"
+                      [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                      class="text-white py-2 px-4 rounded mt-2 mr-2 ">Submit</button>
+              </ng-template>
+          </div>
+          
+          <button type="button" (click)="resetForm()" class="py-2 px-4 rounded mt-2 mr-2 border hover:bg-gray-200 ">Reset</button>
+      </form>
+  </div>
+  <div class="col-md-8">
+      <app-form-card-list-table (updateItemEvent)="setToUpdateItem($event)"></app-form-card-list-table>
+  </div>
 </div>

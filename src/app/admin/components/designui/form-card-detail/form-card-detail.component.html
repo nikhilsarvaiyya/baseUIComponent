@@ -1,0 +1,46 @@
+<div class="row">
+
+    <div class="col-md-4">
+        <form novalidate [formGroup]="saveDataForm" (ngSubmit)="onSubmit(); saveDataForm.reset()">
+            <div class="form-group">
+                <label for="menu">Select Menu</label>
+                <select class="form-select" formControlName="uid">
+                    <option value="">Choose Page</option>
+                    <option *ngFor="let card of cardList " [ngValue]="card._id">
+                        {{ card.title }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="html">HTML</label>
+                <textarea formControlName="html" class="form-control" id="html" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="css">CSS</label>
+                <textarea formControlName="css" class="form-control" id="css" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="js">JS</label>
+                <textarea formControlName="js" class="form-control" id="js" rows="3"></textarea>
+            </div>
+          
+            <div class="float-left">
+                <div *ngIf="updateButton; else submit">
+                    <button type="button" (click)="updateData()" [disabled]="saveDataForm.invalid"
+                        [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                        class="text-white py-2 px-4 rounded mt-2 mr-2 ">Update</button>
+                </div>
+                <ng-template #submit>
+                    <button type="submit" [disabled]="saveDataForm.invalid"
+                        [ngClass]="saveDataForm.invalid ? 'bg-orange-300 ' : 'bg-blue-500 hover:bg-blue-700'"
+                        class="text-white py-2 px-4 rounded mt-2 mr-2 ">Submit</button>
+                </ng-template>
+            </div>
+            
+            <button type="button" (click)="resetForm()" class="py-2 px-4 rounded mt-2 mr-2 border hover:bg-gray-200 ">Reset</button>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <app-form-card-detail-table (updateItemEvent)="setToUpdateItem($event)"></app-form-card-detail-table>
+    </div>
+  </div>

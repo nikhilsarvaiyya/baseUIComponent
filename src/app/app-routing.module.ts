@@ -8,6 +8,8 @@ import { DetailComponent } from './pages/design-ui/detail/detail.component';
 import { ListComponent } from './pages/design-ui/list/list.component';
 import { TableComponent } from './pages/table-components/table/table.component';
 import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
+import { FormCardListComponent } from './admin/components/designui/form-card-list/form-card-list.component';
+import { FormCardDetailComponent } from './admin/components/designui/form-card-detail/form-card-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -18,7 +20,8 @@ const routes: Routes = [
   { path: 'design/ui/detail/:listId/:subListId/:detailId', component: DetailComponent, pathMatch: 'full' },
   { path: 'design/table/list/:tableId', component: TableComponent, pathMatch: 'full' },
   { path: 'design/table/page/:tableId', component: DashboardComponent, pathMatch: 'full' },
-  { path: 'admin/component/designui/form-card', component: FormCardComponent, pathMatch: 'full' },
+  { path: 'admin/component/designui/form-card', component: FormCardListComponent, pathMatch: 'full' },
+  { path: 'admin/component/designui/form-card-detail', component: FormCardDetailComponent, pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent, pathMatch: 'full' },
 ];
 

@@ -1,0 +1,32 @@
+<div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">menu</th>
+          <th scope="col">html</th>
+          <th scope="col">css</th>
+          <th scope="col">js</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [ngClass]="setSingleItem?._id === card?._id ? 'bg-info' : ''"
+          *ngFor="let card of cardList?.data  | orderBy:'_id':'desc' ; let i = index ">
+          <th scope="row">{{i+1}}</th>
+          <td class="break-all">{{card.uid.title}}</td>
+          
+          <td class="break-all">{{card.html}}</td>
+          <td class="break-all">{{card.css}}</td>
+          <td class="break-all">{{card.js}}</td>
+          <td class="w-32">
+            <button class="btn btn-primary btn-sm mr-1  bi bi-eye-fill text-white" (click)="selectItem(card)"></button>
+            <button class="btn btn-secondary btn-sm mr-1  bi bi-pencil text-white" (click)="updateItem(card)"></button>
+            <button class="btn btn-warning btn-sm mr-1  bi bi-trash-fill text-white" (click)="deleteItem(card)"></button>
+          </td>
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>

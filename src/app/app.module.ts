@@ -31,6 +31,9 @@ import { FormCardService } from './services/form-card/form-card.service';
 
 import { OrderByPipe } from './pipe/order-by.pipe';
 import { SocketioService } from '../assets/backupfiles/socketio.service';
+import { FormCardDetailComponent } from './admin/components/designui/form-card-detail/form-card-detail.component';
+import { FormCardDetailTableComponent } from './admin/components/designui/form-card-detail-table/form-card-detail-table.component';
+import { FormCardListTableComponent } from './admin/components/designui/form-card-list-table/form-card-list-table.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { SocketioService } from '../assets/backupfiles/socketio.service';
     CircularJsonPipe,
     FormCardListComponent,
     OrderByPipe,
+    FormCardDetailComponent,
+    FormCardDetailTableComponent,
+    FormCardListTableComponent,
 
   ],
   imports: [
