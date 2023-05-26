@@ -34,6 +34,8 @@ import { SocketioService } from '../assets/backupfiles/socketio.service';
 import { FormCardDetailComponent } from './admin/components/designui/form-card-detail/form-card-detail.component';
 import { FormCardDetailTableComponent } from './admin/components/designui/form-card-detail-table/form-card-detail-table.component';
 import { FormCardListTableComponent } from './admin/components/designui/form-card-list-table/form-card-list-table.component';
+import { ToastComponent } from './comman/toast/toast.component';
+import { ConfirmationDialogComponent } from './comman/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { FormCardListTableComponent } from './admin/components/designui/form-car
     FormCardDetailComponent,
     FormCardDetailTableComponent,
     FormCardListTableComponent,
+    ToastComponent,
+    ConfirmationDialogComponent,
 
   ],
   imports: [
@@ -71,7 +75,7 @@ import { FormCardListTableComponent } from './admin/components/designui/form-car
   providers: [
     RestApiSettingService,
     FormCardService,
-    SocketioService
+    SocketioService,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

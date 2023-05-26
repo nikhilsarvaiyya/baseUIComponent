@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validator, Validators } from "@angular/forms";
 import { FormCardService } from 'src/app/services/form-card/form-card.service';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/comman/toast/toast.service'; 
 @Component({
   selector: 'app-form-card-list',
   templateUrl: './form-card-list.component.html'
@@ -15,6 +16,7 @@ export class FormCardListComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private fcservice: FormCardService,
+    public toastService: ToastService
     // private ngZone: NgZone,
     // private router: Router,
   ) {
@@ -38,6 +40,11 @@ export class FormCardListComponent implements OnInit {
     
   }
 
+  
+  ngOnDestroy(): void {
+		this.toastService.clear();
+	}
+
   setKey(){
     this.saveDataForm.get("title").valueChanges.subscribe(selectedValue => {
       this.saveDataForm.patchValue({
@@ -53,14 +60,16 @@ export class FormCardListComponent implements OnInit {
   onSubmit(): void {
     console.log(this.saveDataForm.value)
     this.fcservice.AddCard(this.saveDataForm.value).subscribe((data) => {
-      this.resetForm()
+      let result = JSON.parse(data)
+      this.resetForm();
+      this.toastService.show(result.title + ' added Successfully!',{ classname: 'bg-success text-light', delay: 3000 });
     })
   }
 
   updateData() {
     this.fcservice.updateCard(this.selectedData._id, this.saveDataForm.value).subscribe((data) => {
-      console.log({ data })
-      this.resetForm()
+      this.resetForm();
+      this.toastService.show(data.title+' updated Successfully!',{ classname: 'bg-success text-light'});
     })
   }
 
@@ -69,7 +78,9 @@ export class FormCardListComponent implements OnInit {
     this.selectedData = updateItem;
     
     this.saveDataForm = this.formBuilder.group({
+      
       title: [updateItem.title, Validators.required],
+      path: updateItem.path,
       icon: updateItem.icon,
       description: [updateItem.description, Validators.required]
     });
