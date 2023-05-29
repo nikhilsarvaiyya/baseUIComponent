@@ -22,13 +22,15 @@ export class SidebarComponent {
   }
 
   ngOnInit() {
-     this.fcservice.GetCards().subscribe((data )=>{
-      this.components = data?.response?.data;
-      let m = this.location.path().split('/')[2]
-    this.sideMenu(m as any)
-      console.log(this.components)
-      console.log(dummyObj)
-    });
+    this.components = dummyObj;
+    this.routePath = "design/ui"
+    //  this.fcservice.GetCards().subscribe((data )=>{
+    //   this.components = data?.response?.data;
+    //   let m = this.location.path().split('/')[2]
+    // this.sideMenu(m as any)
+    //   console.log(this.components)
+    //   console.log(dummyObj)
+    // });
     
    }
 

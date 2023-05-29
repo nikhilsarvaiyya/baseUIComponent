@@ -1,16 +1,20 @@
 <div>
-  <div
-    class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-    <app-header />
-    <app-sidebar *ngIf="menu" />
-    <div class="h-full  mb-10  mt-14" [ngClass]="{'ml-14 md:ml-64 ': menu}">
-      <app-sub-header *ngIf="menu " />
-      <div class="container-full m-4">
-        <router-outlet></router-outlet>
+  <app-header />
+  <div class="container-fluid" style="margin-top:56px">
+    <div class="row flex-nowrap">
+      <!-- [ngClass]="{'ml-14 md:ml-64 ': menu}"> {'ml-14 md:ml-64 ': menu} -->
+     
+      <div class="col-auto px-1 bg-light border border-right" [ngClass]="{'d-none': !menu,'d-block': menu}"> 
+        <app-sidebar *ngIf="menu" />
+      </div>
+      <div class="col p-0">
+        <app-sub-header *ngIf="menu " />
+        <div class="p-3"><router-outlet ></router-outlet></div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- // Toaster  -->
 <app-toast aria-live="polite" aria-atomic="true"></app-toast>

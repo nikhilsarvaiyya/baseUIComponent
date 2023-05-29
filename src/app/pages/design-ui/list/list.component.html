@@ -1,7 +1,8 @@
 
 <!-- <pre>{{getSelectedComponentDetail | json}}</pre> -->
-<div class="grid gap-4 grid-cols-3" *ngIf="getSelectedComponentDetail?.selectedComponent?.data; else NoData" >
-    <div class=' card' style="min-height:200px" *ngFor="let sub of getSelectedComponentDetail?.selectedComponent?.data">
+<div class="row" *ngIf="getSelectedComponentDetail?.selectedComponent?.data; else NoData" >
+    <div class='col-md-4 mb-4' style="min-height:200px" *ngFor="let sub of getSelectedComponentDetail?.selectedComponent?.data">
+        <div class="card">
         <div class="card-header font-semibold bg-purple-00">
             {{sub.name}}
             <a class="float-right" routerLink="/design/ui/detail/{{selectedComponent.path}}/{{sub.name}}"
@@ -11,6 +12,7 @@
         <div class="card-body bg-blue-800">
             <div class="card-text" [innerHTML]="sub.html | sanitizeHtml"></div>
         </div>
+    </div>
         <!-- <div class="card-footer bg-blue-300" ></div> -->
     </div>
 </div>

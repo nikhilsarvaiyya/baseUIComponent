@@ -1,5 +1,6 @@
-<div class="grid gap-4 grid-cols-3" *ngIf="list;else noComponent">
-    <div class='card' *ngFor="let li of list">
+<div class="row" *ngIf="list;else noComponent">
+    <div class='col-md-4' *ngFor="let li of list">
+      <div class='card'>
       <div class="card-header font-semibold ">
         {{li.title}}
         <a class="float-right"
@@ -11,7 +12,7 @@
           {{li.description}}
         </p>
       </div>
-
+    </div>
     </div>
   </div>
   <ng-template #noComponent>
