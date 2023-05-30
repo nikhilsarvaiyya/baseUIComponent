@@ -11,28 +11,28 @@ import { FormCardService } from 'src/app/services/form-card/form-card.service';
 })
 export class SidebarComponent {
   show = -1;
-  components :any = null;
-  routePath : any = '';
+  components: any = dummyObj;
+  routePath: any = 'design/ui';
   routeName: any = ''
 
-  allRoutes : any = []
+  allRoutes: any = []
   constructor(private location: Location,
     private fcservice: FormCardService) {
     this.routeName = this.location.path().split('/')[3]
   }
 
   ngOnInit() {
-    this.components = dummyObj;
-    this.routePath = "design/ui"
-    //  this.fcservice.GetCards().subscribe((data )=>{
-    //   this.components = data?.response?.data;
+
+
+    // this.fcservice.GetCards().subscribe((data) => {
+    //   this.components = data?.response?.data
+
     //   let m = this.location.path().split('/')[2]
-    // this.sideMenu(m as any)
-    //   console.log(this.components)
-    //   console.log(dummyObj)
+    //   this.sideMenu(m as any)
+
     // });
-    
-   }
+
+  }
 
   showsubmenu(index: any) {
   }
@@ -42,7 +42,7 @@ export class SidebarComponent {
   }
 
   ngAfterContentChecked() {
-    
+
   }
 
   sideMenu(value: any) {

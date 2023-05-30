@@ -32,8 +32,9 @@ export class ListComponent {
   }
 
   updateComponent() {
-    this.getParams()
-    this.selectedComponent = this.items?.find((x: any) => x.path == this.getListId);
+    this.getParams();
+    
+    this.selectedComponent = this.items?.find((x: any) => {x.path == this.getListId});
     this.getSelectedComponentDetail = this.location.getState()
   }
 
@@ -51,8 +52,9 @@ export class ListComponent {
 
   }
 
-  ngAfterCiewChecked() {
-
+  ngAfterViewChecked() {
+    this.setData()
+    this.updateComponent()
   }
 
   ngAfterContentChecked() {

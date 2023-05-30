@@ -8,7 +8,7 @@ let dummyObj: any = [
         title: "Loaders",
         icon: "octagon-half",
         description: "This is some text within a card body.",
-        data: codeData.filter((f: any) => f.type === 'spinner')[0]?.value
+        data: codeData.filter((f: any) => f.type === 'spinners')[0]?.value
     },
     {
         id: 2,

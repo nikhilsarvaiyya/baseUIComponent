@@ -49,7 +49,7 @@
     <li *ngFor="let menu of components;let i = index  ">
      
       <a (click)="showsubmenu(i);show===i ? show=-1: show=i" 
-      routerLink="{{routePath}}/{{menu.subTree ? 'page':'list'}}/{{menu.path}}"
+      routerLink="{{routePath}}/{{menu?.subTree ? 'page':'list'}}/{{menu.path}}"
       href="#submenu{{i}}" routerLinkActive="menu-active"
         [state]="{ selectedComponent:menu, parentComponent : null  }" data-bs-toggle="collapse"
         class="text-dark nav-link px-0 align-middle">
