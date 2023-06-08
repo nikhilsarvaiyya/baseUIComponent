@@ -7,9 +7,9 @@ import { PagenotfoundComponent } from './comman/pagenotfound/pagenotfound.compon
 import { DetailComponent } from './pages/design-ui/detail/detail.component';
 import { ListComponent } from './pages/design-ui/list/list.component';
 import { TableComponent } from './pages/table-components/table/table.component';
-import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
-import { FormCardListComponent } from './admin/components/designui/form-card-list/form-card-list.component';
-import { FormCardDetailComponent } from './admin/components/designui/form-card-detail/form-card-detail.component';
+import { FormCardComponent } from './admin/form-card/form-card.component';
+import { FormCardListComponent } from './admin/form-card-list/form-card-list.component';
+import { FormCardDetailComponent } from './admin/form-card-detail/form-card-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },

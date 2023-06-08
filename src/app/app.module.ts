@@ -22,20 +22,21 @@ import { HomeComponent } from './layout/home/home.component';
 import { LoadingComponent } from './comman/loading/loading.component';
 import { CardComponent } from './comman/card/card.component';
 import { TableComponent } from './pages/table-components/table/table.component';
-import { FormCardComponent } from './admin/components/designui/form-card/form-card.component';
+import { FormCardComponent } from './admin/form-card/form-card.component';
 
 import { CircularJsonPipe } from './pipe/circular-json.pipe';
-import { FormCardListComponent } from './admin/components/designui/form-card-list/form-card-list.component';
+import { FormCardListComponent } from './admin/form-card-list/form-card-list.component';
 import { RestApiSettingService } from './services/rest-api-setting.service';
 import { FormCardService } from './services/form-card/form-card.service';
 
 import { OrderByPipe } from './pipe/order-by.pipe';
 import { SocketioService } from '../assets/backupfiles/socketio.service';
-import { FormCardDetailComponent } from './admin/components/designui/form-card-detail/form-card-detail.component';
-import { FormCardDetailTableComponent } from './admin/components/designui/form-card-detail-table/form-card-detail-table.component';
-import { FormCardListTableComponent } from './admin/components/designui/form-card-list-table/form-card-list-table.component';
+import { FormCardDetailComponent } from './admin/form-card-detail/form-card-detail.component';
+import { FormCardDetailTableComponent } from './admin/form-card-detail-table/form-card-detail-table.component';
+import { FormCardListTableComponent } from './admin/form-card-list-table/form-card-list-table.component';
 import { ToastComponent } from './comman/toast/toast.component';
 import { ConfirmationDialogComponent } from './comman/confirmation-dialog/confirmation-dialog.component';
+import { ProductComponent } from './admin/p/product/product.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ConfirmationDialogComponent } from './comman/confirmation-dialog/confir
     FormCardListTableComponent,
     ToastComponent,
     ConfirmationDialogComponent,
+    ProductComponent,
 
   ],
   imports: [
