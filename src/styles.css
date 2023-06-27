@@ -62,3 +62,7 @@
 th {
     text-transform: capitalize;
 }
+
+.dropdown-toggle::after {
+    content: none;
+}

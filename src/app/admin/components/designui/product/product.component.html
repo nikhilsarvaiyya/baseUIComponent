@@ -1,0 +1,85 @@
+<div class="row">
+
+  <div class="col-md-4">
+    <form novalidate [formGroup]="saveDataForm" (ngSubmit)="onSubmit(); saveDataForm.reset()">
+
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name" formControlName="name">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Product Price</label>
+        <input type="number" class="form-control" name="price" id="price" placeholder="Enter Product Price" formControlName="price">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Product Description</label>
+        <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
+      </div>
+
+      <div class="float-left">
+        <div *ngIf="updateButton; else submit">
+          <button type="button" (click)="updateData()" [disabled]="saveDataForm.invalid"
+            class="btn btn-primary ">Update</button>
+        </div>
+        <ng-template #submit>
+          <button type="submit" [disabled]="saveDataForm.invalid" class="btn btn-primary ">Submit</button>
+        </ng-template>
+      </div>
+
+      <button type="button" (click)="resetForm()" class="btn btn-light ">Reset</button>
+    </form>
+  </div>
+  <div class="col-md-8">
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col" style="text-align:right">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [ngClass]="setSingleItem?._id === product?._id ? 'bg-info' : ''"
+            *ngFor="let product of productList?.data  | orderBy:'_id':'desc' ; let i = index ">
+            <th scope="row">{{i+1}}</th>
+            <td class="break-all">
+              <!-- <picture>
+                      <source [srcset]="product.image" type="image/svg+xml">
+                      <img [src]="product.image" class="img-fluid img-thumbnail" alt="...">
+                    </picture> -->
+
+              <img [src]="product.image || alternateUrl" height="36" width="48" class="rounded border" alt="product.name" />
+            </td>
+            <td class="break-all">{{product.name}}</td>
+            <td class="break-all">{{product.brand}}</td>
+            <td class="break-all">{{product.price}}</td>
+
+            <td class="w-32" style="text-align:right">
+              <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary bi bi-three-dots-vertical" id="dropdownBasic1" ngbDropdownToggle></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button (click)="selectItem(product)" ngbDropdownItem>View</button>
+                  <button (click)="updateItem(product)" ngbDropdownItem>Edit</button>
+                  <button [routerLink]="product._id" ngbDropdownItem>Detail</button>
+                  <button (click)="deleteItem(product)" ngbDropdownItem>Delete</button>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>

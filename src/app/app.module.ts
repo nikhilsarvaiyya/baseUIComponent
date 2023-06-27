@@ -36,6 +36,8 @@ import { FormCardDetailTableComponent } from './admin/components/designui/form-c
 import { FormCardListTableComponent } from './admin/components/designui/form-card-list-table/form-card-list-table.component';
 import { ToastComponent } from './comman/toast/toast.component';
 import { ConfirmationDialogComponent } from './comman/confirmation-dialog/confirmation-dialog.component';
+import { ProductComponent } from './admin/components/designui/product/product.component';
+import { ProductDetailComponent } from './admin/components/designui/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { ConfirmationDialogComponent } from './comman/confirmation-dialog/confir
     FormCardListTableComponent,
     ToastComponent,
     ConfirmationDialogComponent,
+    ProductComponent,
+    ProductDetailComponent,
 
   ],
   imports: [
